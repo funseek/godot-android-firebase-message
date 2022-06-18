@@ -1,0 +1,10 @@
+[config]
+
+name="GodotAndroidFirebaseMessage"
+binary_type="local"
+binary="GodotAndroidFirebaseMessage.release.aar"
+
+[dependencies]
+
+local=[]
+remote=["com.google.firebase:firebase-messaging:23.0.5"]
