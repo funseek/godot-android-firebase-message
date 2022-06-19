@@ -46,7 +46,9 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
 
         // Also if you intend on generating your own notifications as a result of a received FCM
         // message, here is where that should be initiated. See sendNotification method below.
-        GodotAndroidFirebaseMessage.instance!!.callSignalReceiveMessage(remoteMessage)
+        GodotAndroidFirebaseMessage.instance?.let {
+            it.callSignalReceiveMessage(remoteMessage)
+        }
     }
     // [END receive_message]
 
@@ -91,8 +93,10 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
      */
     private fun sendRegistrationToServer(token: String?) {
         Log.d(TAG, "sendRegistrationTokenToServer($token)")
-        token?.let {
-            GodotAndroidFirebaseMessage.instance!!.callSignalReceiveToken(it)
+        token?.let { t ->
+            GodotAndroidFirebaseMessage.instance?.let {
+                it.callSignalReceiveToken(t)
+            }
         }
     }
 
